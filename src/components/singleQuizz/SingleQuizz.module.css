@@ -1,0 +1,123 @@
+
+.body{
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  background-color: #c05686;
+  padding: 10px;
+}
+.asideContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #247ed8;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: inherit;
+  overflow-y: auto;
+  size-adjust: True;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(204, 176, 140);
+  
+}
+
+.questionContainer{
+  display: flex;
+  background-color: lightblue;
+}
+
+/* 
+.body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.headerContainer {
+  width: 100%;
+}
+
+.header {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+}
+
+.mainContainer {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.asideContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  max-width: 250px;
+  background-color: #e9ecef;
+  padding: 1rem;
+  box-sizing: border-box;
+  height: inherit;
+  overflow-y: auto;
+  border: #874caf;
+  border-style: dashed;
+  size-adjust: True;
+}
+
+.aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: #4caf50;
+  height: 100%;
+  width: 100%;
+}
+
+.aside button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.aside button:hover {
+  background-color: #0056b3;
+}
+
+.progressContainer {
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.progressBar {
+  height: 20px;
+  background-color: #4caf50;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+*/
+
