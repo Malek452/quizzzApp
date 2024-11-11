@@ -1,5 +1,5 @@
 // import { quizzes } from './data/quizzes';
-import React, {useState} from 'react';
+import React from 'react'; // , {useState}
 import './App.css';
 import SelectQuizz from './components/selectQuizz/SelectQuizz';
 
