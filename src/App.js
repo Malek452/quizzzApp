@@ -6,12 +6,12 @@ import SelectQuizz from './components/selectQuizz/SelectQuizz';
 
 
 function App() {
-  const [quiz, setQuiz] = useState(0);  
-  const [question, setQuestion] = useState(0);
+
+
   //fast
   return (
     <div className="App">
-      <SelectQuizz />
+      <SelectQuizz/>
     </div>
   );
 }

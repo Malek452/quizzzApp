@@ -8,6 +8,8 @@ function SingleQuizz({quizz}) {
     const [wrongIndex, setWrongIndex] = useState([]);
     const[quizzFinished, setQuizzFinished] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    
+
 
     const passToNextQuestion = () => {
         setCurrentQuestion(currentQuestion + 1);
@@ -24,7 +26,10 @@ function SingleQuizz({quizz}) {
     useEffect(() => {
         console.log(`The score is ${score}`);
         console.log(`The wrong answers indecies are ${wrongIndex}`);
-    }, [currentQuestion]);
+        if (quizzFinished) {
+            console.log(`The quizz is finished with a score of ${score}`);
+        }
+    }, [currentQuestion, score, wrongIndex, quizzFinished]);
 
   return (
     <body className={styles.body}>
