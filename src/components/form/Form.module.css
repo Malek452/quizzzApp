@@ -9,18 +9,22 @@
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 1; /* Ensures the form can shrink */
 }
+
 
 .imageContainer {
   width: 100%;
   display: flex;
-  justify-content: center;
+  max-width: 100%; /* Limit to the parent's width */
 }
 
 .image {
   width: 100%;
-  max-width: 300px;
-  border-radius: 10px;
+  max-width: 100%; /* Restrict image width to the container */
+  border-radius: 25px;
 }
 
 .question {
@@ -35,6 +39,7 @@
   flex-direction: column;
   width: 100%;
   gap: 0.5rem;
+  max-width: 100%; /* Ensure it does not exceed parent width */
 }
 
 .answerLabel {
@@ -42,12 +47,12 @@
   align-items: center;
   cursor: pointer;
   font-size: 1rem;
-  padding: 10px;
+  padding: 10px 20px;
   width: auto;
   border: 1px solid #c8d3d3;
   border-radius: 8px;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  position: relative;
+  
 }
 
 .answerLabel:hover {
