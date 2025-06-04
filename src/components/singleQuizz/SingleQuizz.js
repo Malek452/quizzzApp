@@ -3,7 +3,7 @@ import styles from './SingleQuizz.module.css';
 import Form from '../form/Form';
 
 
-function SingleQuizz({quizz}) {
+function SingleQuizz({ quiz }) {
     const [score, setScore] = useState(0);
     const [wrongIndex, setWrongIndex] = useState([]);
     const[quizzFinished, setQuizzFinished] = useState(false);
@@ -15,7 +15,6 @@ function SingleQuizz({quizz}) {
         setCurrentQuestion(currentQuestion + 1);
     };
     const scoreHandler = () =>{
-        console.log("score handler called");
         setScore(score + 1);
     };
 
@@ -24,32 +23,29 @@ function SingleQuizz({quizz}) {
     };
 
     useEffect(() => {
-        console.log(`The score is ${score}`);
-        console.log(`The wrong answers indecies are ${wrongIndex}`);
-        if (quizzFinished) {
-            console.log(`The quizz is finished with a score of ${score}`);
+        if (currentQuestion >= quiz.length) {
+            setQuizzFinished(true);
         }
-    }, [currentQuestion, score, wrongIndex, quizzFinished]);
+    }, [currentQuestion, quiz.length]);
 
   return (
-    <body className={styles.body}>
-    <div className={styles.asideContainer}>
+    <div className={styles.body}>
+      <div className={styles.asideContainer}>
         <aside className={styles.aside}>
             <button onClick={() => setQuizzFinished(true)}>Finish Quizz</button> <br/>
             Score : {score} <br/>
-            Progress : {currentQuestion +1 }/{quizz.length} 
+            Progress : {currentQuestion + 1}/{quiz.length}
         </aside>
-    </div>
-    <div className={styles.questionContainer}>
-        <
-            Form 
-            question={quizz[currentQuestion]}
-            pass2next = {passToNextQuestion}
+      </div>
+      <div className={styles.questionContainer}>
+        <Form
+            question={quiz[currentQuestion]}
+            pass2next={passToNextQuestion}
             addScore={scoreHandler}
             wrongIndex={wrongIndexHandler}
         />
+      </div>
     </div>
-    </body>
   )
 }
 

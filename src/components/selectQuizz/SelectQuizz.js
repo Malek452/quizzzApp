@@ -4,14 +4,13 @@ import SingleQuizz from '../singleQuizz/SingleQuizz';
 
 
 function SelectQuizz() {
-  // const [QuizzIndex, setQuizzIndex] = React.useState(0);
-
-    const quizz = quizzes[0]; //quizzes[QuizzIndex];
+  // In the future we could allow selecting different quizzes
+  const quiz = quizzes;
   return (
     <div>
-      <SingleQuizz quizz = {quizz} />
+      <SingleQuizz quiz={quiz} />
     </div>
-  )
+  );
 }
 
 export default SelectQuizz
