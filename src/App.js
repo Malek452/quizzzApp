@@ -1,17 +1,27 @@
 // import { quizzes } from './data/quizzes';
-import React from 'react'; // , {useState}
+import React from 'react';
 import './App.css';
-import SelectQuizz from './components/selectQuizz/SelectQuizz';
-
-
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import Signup from './pages/Signup';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import QuizPage from './pages/QuizPage';
 
 function App() {
-
-
-  //fast
   return (
     <div className="App">
-      <SelectQuizz/>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/quiz/:id" element={<QuizPage />} />
+            <Route path="*" element={<Navigate to="/login" />} />
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

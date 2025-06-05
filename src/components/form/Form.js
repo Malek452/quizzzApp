@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Form.module.css';
 
 function Form({question, pass2next, addScore, wrongIndex})  {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+  const timeoutRef = useRef(null);
   if (!question) {
     return <div>Loading...</div>; // Handle the case where question is undefined
   }
+
+  useEffect(() => {
+    return () => clearTimeout(timeoutRef.current);
+  }, []);
   const questionData = question;
 
   const handleSubmit = (e) => {
@@ -14,23 +19,19 @@ function Form({question, pass2next, addScore, wrongIndex})  {
     setSubmitted(true);
     const correctSelected = selectedAnswers.filter(answer => questionData.correctAnswers.includes(answer));
     const incorrectSelected = selectedAnswers.filter(answer => !questionData.correctAnswers.includes(answer));
-    console.log(`correct selected ${correctSelected}`);
-    console.log(`incorrect selected ${incorrectSelected.map((element) => element)}`);
-    
+
     if (correctSelected.length === question.correctAnswers.length && incorrectSelected.length === 0) {
-      console.log('Correct answers, calling addScore');
       addScore();
     } else {
       wrongIndex();
     }
 
-
-    //wait for 2 seconds before moving to the next question
-    setTimeout(() => { pass2next() ;
-    setSubmitted(false);
-    setSelectedAnswers([]);
-      ;
-     }, 2000);
+    // wait for 2 seconds before moving to the next question
+    timeoutRef.current = setTimeout(() => {
+      pass2next();
+      setSubmitted(false);
+      setSelectedAnswers([]);
+    }, 2000);
 
 
   };

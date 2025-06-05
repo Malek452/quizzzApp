@@ -1,4 +1,5 @@
-export const quizzes = [[
+// Export a flat array of quiz questions instead of a nested array
+export const quizzes = [
   {
     image: 'https://cdn.pixabay.com/photo/2021/12/17/19/15/pet-6877246_1280.jpg', // Remplacez par une URL valide
     question: 'Quel animal est-ce ?',
@@ -58,5 +59,5 @@ export const quizzes = [[
     question: 'Quel aliment est-ce ?',
     answers: ['Une pizza', 'Un hamburger', 'Un sandwich', 'Des frites'],
     correctAnswers: ['Une pizza']
-  },
-]];
+  }
+];
