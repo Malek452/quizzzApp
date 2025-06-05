@@ -1,17 +1,17 @@
 import React from 'react'
 import { quizzes } from '../../data/quizzes';
-import SingleQuizz from '../singleQuizz/SingleQuizz';
+import SingleQuiz from '../singleQuiz/SingleQuiz';
 
 
-function SelectQuizz() {
+function SelectQuiz() {
   // const [QuizzIndex, setQuizzIndex] = React.useState(0);
 
     const quizz = quizzes[0]; //quizzes[QuizzIndex];
   return (
     <div>
-      <SingleQuizz quizz = {quizz} />
+      <SingleQuiz quizz = {quizz} />
     </div>
   )
 }
 
-export default SelectQuizz
+export default SelectQuiz

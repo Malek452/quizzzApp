@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
-import styles from './SingleQuizz.module.css';
+import styles from './SingleQuiz.module.css';
 import Form from '../form/Form';
 
 
-function SingleQuizz({quizz}) {
+function SingleQuiz({quizz}) {
     const [score, setScore] = useState(0);
     const [wrongIndex, setWrongIndex] = useState([]);
     const[quizzFinished, setQuizzFinished] = useState(false);
@@ -53,4 +53,4 @@ function SingleQuizz({quizz}) {
   )
 }
 
-export default SingleQuizz
+export default SingleQuiz
