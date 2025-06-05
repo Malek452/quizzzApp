@@ -1,9 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Form.module.css';
 
 function Form({question, pass2next, addScore, wrongIndex})  {
   const [selectedAnswers, setSelectedAnswers] = useState([]);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    // reset state whenever the question changes
+    setSelectedAnswers([]);
+    setSubmitted(false);
+  }, [question]);
+
   if (!question) {
     return <div>Loading...</div>; // Handle the case where question is undefined
   }
