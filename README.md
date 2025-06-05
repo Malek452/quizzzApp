@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Quiz App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a small quiz application built with [Create React App](https://github.com/facebook/create-react-app).
+
+## Running the Quiz App
+
+1. Install dependencies with `npm install`.
+2. Start the development server using `npm start`.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to play the quiz.
 
 ## Available Scripts
 
