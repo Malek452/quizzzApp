@@ -1,16 +1,12 @@
-import React from 'react'
-import { quizzes } from '../../data/quizzes';
+import React from 'react';
 import SingleQuizz from '../singleQuizz/SingleQuizz';
 
-
-function SelectQuizz() {
-  // In the future we could allow selecting different quizzes
-  const quiz = quizzes;
+function SelectQuizz({ quiz, quizId }) {
   return (
     <div>
-      <SingleQuizz quiz={quiz} />
+      <SingleQuizz quiz={quiz} quizId={quizId} />
     </div>
   );
 }
 
-export default SelectQuizz
+export default SelectQuizz;

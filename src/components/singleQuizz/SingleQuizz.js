@@ -1,13 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './SingleQuizz.module.css';
 import Form from '../form/Form';
+import { useAuth } from '../../contexts/AuthContext';
 
 
-function SingleQuizz({ quiz }) {
+function SingleQuizz({ quiz, quizId }) {
     const [score, setScore] = useState(0);
     const [wrongIndex, setWrongIndex] = useState([]);
-    const[quizzFinished, setQuizzFinished] = useState(false);
+    const [quizzFinished, setQuizzFinished] = useState(false);
     const [currentQuestion, setCurrentQuestion] = useState(0);
+    const navigate = useNavigate();
+    const { markQuizDone } = useAuth();
     
 
 
@@ -28,11 +32,19 @@ function SingleQuizz({ quiz }) {
         }
     }, [currentQuestion, quiz.length]);
 
+    useEffect(() => {
+        if (quizzFinished) {
+            markQuizDone(quizId);
+            navigate('/dashboard');
+        }
+    }, [quizzFinished, markQuizDone, quizId, navigate]);
+
   return (
     <div className={styles.body}>
       <div className={styles.asideContainer}>
         <aside className={styles.aside}>
-            <button onClick={() => setQuizzFinished(true)}>Finish Quizz</button> <br/>
+            <button onClick={() => setQuizzFinished(true)}>Finish Quizz</button>
+            <button onClick={() => navigate('/dashboard')}>Exit</button> <br/>
             Score : {score} <br/>
             Progress : {currentQuestion + 1}/{quiz.length}
         </aside>
